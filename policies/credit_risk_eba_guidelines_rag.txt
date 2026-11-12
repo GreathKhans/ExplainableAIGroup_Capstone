@@ -1,0 +1,70 @@
+Credit Risk Assessment - Condensed EBA Guidelines for RAG
+Eight source-referenced extracts for the Credit Risk Auditor academic project
+This educational summary is based on the European Banking Authority (EBA) Guidelines on loan origination and monitoring (EBA/GL/2020/06, 29 May 2020). It is neither an official EBA publication nor an internal bank policy. P01-P08 are project retrieval IDs, not EBA paragraph numbers. The German Credit feature links are project annotations, not EBA requirements.
+
+Source: EBA/GL/2020/06 - Final Report, Guidelines on loan origination and monitoring (29 May 2020).
+
+PAGE 1 - CUSTOMER FINANCIAL PROFILE AND CREDIT HISTORY
+
+[P01] Checking Account and Financial Evidence
+Policy Statement: Use sufficient, accurate and current financial information to assess a consumer borrower; account information is evidence to verify, not a standalone lending decision.
+Assessment Criteria: Review relevant current-account statements and financial assets/liabilities where available. Verify inconsistent or unreliable financial information through proportionate checks. A German Credit checking_status category alone is not a transaction history and cannot establish an exact current balance.
+Required Action: Request clarification or supporting account information if needed; record verified facts separately from model predictions.
+EBA reference: EBA paras 84, 87-89; Annex 2, A.6-A.7
+Project feature mapping (not EBA text): checking_status; savings_status
+
+[P02] Financial Situation and Repayment Capacity
+Policy Statement: Assess whether a consumer can meet the obligations under a proposed loan using evidence of sources of repayment capacity and financial commitments.
+Assessment Criteria: Consider employment, income or other repayment resources, regular expenses, and obligations; loan maturity and interest rate influence the assessment. German Credit offers partial proxies only, not verified salary or a complete affordability calculation.
+Required Action: If repayment capacity cannot be established from reliable evidence, obtain further information and refer the case for assessment.
+EBA reference: EBA paras 85(b)-(f), 90, 96, 98; Annex 2, A.5-A.8
+Project feature mapping (not EBA text): employment_since; savings_status; installment_rate
+
+[P03] Previous Credit and Repayment History
+Policy Statement: Consider available previous repayment behaviour when evaluating the consumer's current and prospective ability to service a loan.
+Assessment Criteria: The EBA specifically identifies repayment behaviour and relevant credit-register information as assessment evidence. Interpret any German Credit credit_history category using its actual code meaning; a SHAP contribution is not evidence of a missed payment.
+Required Action: Verify the category and any adverse credit-history statement before using it in an explanation or credit assessment.
+EBA reference: EBA para 98; Annex 2, A.12
+Project feature mapping (not EBA text): credit_history
+
+[P04] Payment Difficulties and Data Verification
+Policy Statement: Assess indications of missed payments and their circumstances without making unsupported assumptions about their cause, number or dates.
+Assessment Criteria: Relevant information can include repayment behaviour and credit-register evidence. Where data accuracy is uncertain, the EBA calls for reasonable verification. A broad coded category must not be treated as an exact count or date of delinquency.
+Required Action: Seek reliable evidence, document any uncertainty, and escalate unresolved findings rather than inventing delinquency details.
+EBA reference: EBA paras 89, 98; Annex 2, A.12
+Project feature mapping (not EBA text): credit_history
+
+[[PAGE BREAK]]
+
+PAGE 2 - LOAN ASSESSMENT AND DECISION GOVERNANCE
+
+[P05] Existing Credit Commitments and Instalments
+Policy Statement: Evaluate other financial commitments and expenses for servicing them, alongside the proposed loan.
+Assessment Criteria: Use a customer-wide view including obligations with other creditors and relevant outstanding commitments. The German Credit features other_installment_plans, existing_credits and installment_rate are limited indicators, not full balances or verified monthly repayment amounts.
+Required Action: Check the borrower's other obligations where relevant and assess their combined effect on repayment capacity.
+EBA reference: EBA paras 85(e)-(f), 90, 98; Annex 2, A.7-A.8
+Project feature mapping (not EBA text): other_installment_plans; existing_credits; installment_rate
+
+[P06] Loan Amount and Repayment Period
+Policy Statement: Evaluate the requested amount and maturity in relation to the consumer's ability to meet the loan obligations.
+Assessment Criteria: EBA para 96 identifies loan nature, maturity and interest rate as relevant; Annex 1 lists maximum amounts and maturities as criteria for an institution to define. The EBA extract does not prescribe one universal numerical amount or maturity cutoff.
+Required Action: Check amount and term against verified repayment capacity and the lender's documented, applicable criteria; do not invent an EBA threshold.
+EBA reference: EBA para 96; Annex 1, Consumer criteria 5-6 and 10-13
+Project feature mapping (not EBA text): credit_amount; duration
+
+[P07] Decision Governance and Human Escalation
+Policy Statement: Credit decisions should follow documented authority, controls, and escalation procedures, including oversight of automated creditworthiness models.
+Assessment Criteria: EBA describes rules for exceptions, overrides, traceability and escalation. Its model guidance calls for controls and expert judgement where appropriate. A high-risk model prediction is not itself proof of an actual loan rejection.
+Required Action: Route insufficiently supported, disputed or uncertain model-assisted cases to an authorised reviewer; record the eventual decision and rationale.
+EBA reference: EBA paras 38(h)-(j), 54(d), 194-195
+Project feature mapping (not EBA text): predicted risk class; model score; selected SHAP factors
+
+[P08] Explanation, Documentation and Traceability
+Policy Statement: Document creditworthiness assessments and decisions, and maintain traceable, auditable model input/output evidence.
+Assessment Criteria: EBA requires appropriate model documentation and traceability; credit assessment outcomes must support the approval/decline proposal. SHAP, RAG clause IDs and LLM citations are additional methods used by this academic prototype, not techniques mandated by EBA.
+Required Action: For each draft explanation record observed applicant values, risk attribution, the applicable EBA references and verification status. Require human verification before using any proposed adverse-action notice.
+EBA reference: EBA paras 53(c)-(f), 54(b)-(c), 55, 194-196
+Project feature mapping (not EBA text): SHAP evidence; retrieved clause IDs; LLM draft
+
+Source PDF: EBA GL 2020 06 Final Report on GL on loan origination and monitoring.pdf
+Method note: This is a condensed paraphrase, not the original EBA text. No loan rejection is inferred solely from a model prediction.
